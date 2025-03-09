@@ -1,99 +1,39 @@
-[gd_scene load_steps=17 format=3 uid="uid://piq1qo6dhgdh"]
+[gd_scene load_steps=9 format=3 uid="uid://piq1qo6dhgdh"]
 
 [ext_resource type="PackedScene" uid="uid://brpt71jl5cg2q" path="res://scenes/player.tscn" id="1_8teri"]
-[ext_resource type="Texture2D" uid="uid://ya235vbyvsuk" path="res://test_scene_assets/fakepngcat.png" id="2_87uvm"]
-[ext_resource type="Script" uid="uid://b2b0p0ahedm7k" path="res://test_scene_assets/ButtonInteractible.gd" id="2_dgpk1"]
-[ext_resource type="AudioStream" uid="uid://bda1e85y0na7r" path="res://test_scene_assets/miau.ogg" id="3_dq0nh"]
 [ext_resource type="PackedScene" uid="uid://dcg77dbt3ronp" path="res://scenes/enemy.tscn" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://evrxraspvufi" path="res://lebrong.jpg" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cblrxxdynhp6n" path="res://james.png" id="7_272bh"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e2q4g"]
-sky_top_color = Color(0.371817, 5.62528e-07, 9.62615e-08, 1)
-sky_horizon_color = Color(0.697213, 0.5, 0.52749, 1)
-sky_energy_multiplier = 0.85
-ground_bottom_color = Color(0.417035, 0, 0.109961, 1)
-ground_horizon_color = Color(0.697213, 0.5, 0.52749, 1)
-
-[sub_resource type="Sky" id="Sky_6brtm"]
-sky_material = SubResource("ProceduralSkyMaterial_e2q4g")
-
-[sub_resource type="Environment" id="Environment_qbkgc"]
-background_mode = 2
-sky = SubResource("Sky_6brtm")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjcof"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_52idf"]
-size = Vector3(0.272949, 0.172974, 0.234375)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gkoj"]
-albedo_texture = ExtResource("2_87uvm")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_vcox7"]
-material = SubResource("StandardMaterial3D_6gkoj")
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_lquwl"]
-vertices = PackedVector3Array(-9.5, 1.7, -9.5, -9.5, 1.7, 9.5, 9.5, 1.7, 9.5, 9.5, 1.7, -9.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(3.25, 1.7, 9.5, 3.25, 1.7, 2, 2.75, 1.7, 1.75, -9.5, 1.7, 9.5, 2.75, 1.7, -1.75, 3.25, 1.7, -2, 3.25, 1.7, -9.5, -9.5, 1.7, -9.5, 5, 1.7, -1.75, 5, 1.7, 0, 9.5, 1.7, 0, 9.5, 1.7, -9.5, 5, 1.7, 1.75, 9.5, 1.7, 9.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(8, 5, 6), PackedInt32Array(6, 11, 8), PackedInt32Array(8, 11, 10), PackedInt32Array(12, 9, 10), PackedInt32Array(0, 1, 12), PackedInt32Array(0, 12, 13), PackedInt32Array(13, 12, 10)]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7mycd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1bvp3"]
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+fog_mode = 1
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1447
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_8teri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48323, 0)
 
-[node name="TestPlace" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485046, 0.712285, 0.156724)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="TestPlace"]
-environment = SubResource("Environment_qbkgc")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="TestPlace"]
-transform = Transform3D(7.40277, 0, 0, 0, 1, 0, 0, 0, 2.3066, -0.114594, 0, 2.65455)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(7.40277, 0, 0, 0, 1, 0, 0, 0, 2.3066, -0.59964, 0.712285, 2.81127)
 use_collision = true
 size = Vector3(3.93793, 1, 11.9994)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="TestPlace"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114594, 0.621386, -2.90825)
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.14751, 0, 0, 0, 2.74765, 3.9357, 2.64778, 0)
 use_collision = true
-size = Vector3(3.93793, 0.24115, 0.873812)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="TestPlace"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31979, 0.773056, -2.74449)
-use_collision = true
-size = Vector3(0.201775, 0.0473022, 0.202767)
-material = SubResource("StandardMaterial3D_yjcof")
-
-[node name="Interactible3D" type="Area3D" parent="TestPlace/CSGBox3D3"]
-script = ExtResource("2_dgpk1")
-InteractText = "Press [E] to summon cool ass cat"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestPlace/CSGBox3D3/Interactible3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178223, 0.0786743, 0.0214844)
-shape = SubResource("BoxShape3D_52idf")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TestPlace/CSGBox3D3/Interactible3D"]
-stream = ExtResource("3_dq0nh")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="TestPlace"]
-transform = Transform3D(1, 0, 0, 0, 0.849479, 0.527623, 0, -0.527623, 0.849479, 0, 3.38979, 3.26035)
-light_color = Color(0.585847, 1.8049e-06, 4.33177e-07, 1)
-light_energy = 3.101
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="TestPlace"]
-transform = Transform3D(1, 0, 0, 0, -0.774072, 0.633097, 0, -0.633097, -0.774072, 0, 3.38979, -1.66433)
-light_color = Color(1, 0.592798, 0.532572, 1)
-light_energy = 1.97
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TestPlace"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.156692, 1.68591, -3.2028)
-visible = false
-mesh = SubResource("PlaneMesh_vcox7")
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.41189, 2.00115)
@@ -108,9 +48,24 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.2, 0)
 visible = false
 mesh = SubResource("PlaneMesh_7mycd")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 2.14751, 0, 0, 0, 2.74765, 3.9357, 2.64778, 0)
+visible = false
+mesh = SubResource("BoxMesh_1bvp3")
+
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56653, 1.89437, 0)
 texture_for_sprite = ExtResource("7_272bh")
 player = NodePath("../Player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999149, 0.0412479, 0, -0.0160121, 0.387861, 0.921579, 0.0380132, -0.920795, 0.388191, 0, 3.76923, 0)
+light_energy = 0.677
+light_indirect_energy = 0.1
+light_volumetric_fog_energy = 2.245
+light_specular = 0.0
