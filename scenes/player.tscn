@@ -103,5 +103,5 @@ collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_auuwx")
+&"": SubResource("AnimationLibrary_auuwx")
 }

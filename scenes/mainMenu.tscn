@@ -35,17 +35,7 @@ offset_bottom = -123.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-text = "my awesome game"
-
-[node name="Label2" type="Label" parent="Label"]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 24.0
-offset_right = 224.0
-offset_bottom = 58.0
-theme_override_colors/font_color = Color(0.934358, 0.934358, 7.70092e-07, 1)
-theme_override_font_sizes/font_size = 24
-text = "DELUXE"
+text = "Descending Into Madness"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
