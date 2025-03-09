@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://brpt71jl5cg2q"]
+[gd_scene load_steps=10 format=3 uid="uid://brpt71jl5cg2q"]
 
 [ext_resource type="Script" uid="uid://rub66f505nc8" path="res://scenes/player.gd" id="1_yofdb"]
 [ext_resource type="PackedScene" uid="uid://c6wmqp0buuk5m" path="res://scenes/PlayerGUI.tscn" id="2_ywley"]
+[ext_resource type="AudioStream" uid="uid://8su721ydd8ti" path="res://ambience.ogg" id="3_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jse87"]
 
@@ -105,3 +106,9 @@ collide_with_bodies = false
 libraries = {
 &"": SubResource("AnimationLibrary_auuwx")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_qhqgy")
+max_db = -20.0
+autoplay = true
+parameters/looping = true

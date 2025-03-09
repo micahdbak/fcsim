@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://piq1qo6dhgdh"]
+[gd_scene load_steps=17 format=3 uid="uid://piq1qo6dhgdh"]
 
 [ext_resource type="PackedScene" uid="uid://brpt71jl5cg2q" path="res://scenes/player.tscn" id="1_8teri"]
 [ext_resource type="Texture2D" uid="uid://ya235vbyvsuk" path="res://test_scene_assets/fakepngcat.png" id="2_87uvm"]
 [ext_resource type="Script" uid="uid://b2b0p0ahedm7k" path="res://test_scene_assets/ButtonInteractible.gd" id="2_dgpk1"]
 [ext_resource type="AudioStream" uid="uid://bda1e85y0na7r" path="res://test_scene_assets/miau.ogg" id="3_dq0nh"]
 [ext_resource type="PackedScene" uid="uid://dcg77dbt3ronp" path="res://scenes/enemy.tscn" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://evrxraspvufi" path="res://lebrong.jpg" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cblrxxdynhp6n" path="res://james.png" id="7_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e2q4g"]
 sky_top_color = Color(0.371817, 5.62528e-07, 9.62615e-08, 1)
@@ -95,6 +97,7 @@ mesh = SubResource("PlaneMesh_vcox7")
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.41189, 2.00115)
+texture_for_sprite = ExtResource("6_7mycd")
 player = NodePath("../Player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -104,3 +107,10 @@ navigation_mesh = SubResource("NavigationMesh_lquwl")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.2, 0)
 visible = false
 mesh = SubResource("PlaneMesh_7mycd")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56653, 1.89437, 0)
+texture_for_sprite = ExtResource("7_272bh")
+player = NodePath("../Player")

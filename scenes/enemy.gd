@@ -4,11 +4,14 @@ var movement_speed: float = 2.0  # Slightly faster for better responsiveness
 var movement_target_position: Vector3 = Vector3(-3.0, 0.0, 2.0)
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var sprite3d: Sprite3D = $Sprite3D
+@export var texture_for_sprite: Texture
 @export var player: Node3D  # Drag the player node into this export field
 
 func _ready():
 	navigation_agent.path_desired_distance = 0.8
 	navigation_agent.target_desired_distance = 0.8
+	sprite3d.texture = texture_for_sprite
 	actor_setup.call_deferred()
 
 func actor_setup():
