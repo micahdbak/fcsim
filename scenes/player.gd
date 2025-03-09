@@ -18,10 +18,10 @@ var currentState : CharacterState = CharacterState.WALKING
 @onready var SPEED = DEFAULT_SPEED # DEFAULT_SPEED doesn't load until _ready(), so we have to use @onready (you could also just move SPEED a bit to the bottom)
 
 # Options
-@export var DEFAULT_SPEED := 3
+@export var DEFAULT_SPEED := 2
 @export var JUMP_VELOCITY := 2.5
 @export var mouse_sensitivity := 0.1
-@export var SPRINT_SPEED := 3.5
+@export var SPRINT_SPEED := 2.5
 @export var CROUCH_SPEED := 1.5
 var inputEnabled := true # can the player move?
 var aimlookEnabled := true # can the player look around?
