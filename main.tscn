@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://piq1qo6dhgdh"]
+[gd_scene load_steps=9 format=3 uid="uid://piq1qo6dhgdh"]
 
 [ext_resource type="PackedScene" uid="uid://brpt71jl5cg2q" path="res://scenes/player.tscn" id="1_8teri"]
-[ext_resource type="PackedScene" path="res://scenes/neighborhood.tscn" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://diahx2w3fggw6" path="res://mocha.png" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cmcs6t82es56q" path="res://scenes/neighborhood.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dcg77dbt3ronp" path="res://scenes/enemy.tscn" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://evrxraspvufi" path="res://lebrong.jpg" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cblrxxdynhp6n" path="res://james.png" id="7_272bh"]
@@ -16,10 +17,15 @@ ambient_light_color = Color(1, 1, 1, 1)
 fog_mode = 1
 fog_density = 1.0
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.3237
+volumetric_fog_density = 0.0579
 volumetric_fog_length = 15.49
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73274, 5.50013)
+texture_for_sprite = ExtResource("2_7mycd")
+player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_8teri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48323, 0)
@@ -50,5 +56,5 @@ environment = SubResource("Environment_1bvp3")
 transform = Transform3D(0.999149, 0.0412479, 0, -0.0160121, 0.387861, 0.921579, 0.0380132, -0.920795, 0.388191, 0, 3.76923, 0)
 light_energy = 0.677
 light_indirect_energy = 0.1
-light_volumetric_fog_energy = 2.245
+light_volumetric_fog_energy = 16.0
 light_specular = 0.0
