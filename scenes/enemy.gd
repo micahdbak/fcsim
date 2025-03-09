@@ -38,6 +38,8 @@ func _physics_process(delta):
 	# Collision detection & scene switch
 	if navigation_agent.is_navigation_finished() and global_position.distance_to(player.global_position) < navigation_agent.target_desired_distance:
 		call_deferred("switch_scene")
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 
 func switch_scene():
 	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
