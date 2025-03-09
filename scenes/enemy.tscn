@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcg77dbt3ronp"]
 
 [ext_resource type="Script" uid="uid://c3gpcsmeol7u2" path="res://scenes/enemy.gd" id="1_7p1mj"]
-[ext_resource type="Texture2D" uid="uid://ya235vbyvsuk" path="res://test_scene_assets/fakepngcat.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://lthu8c4wogsg" path="res://test_scene_assets/lebrong.jpg" id="2_md0e3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_md0e3"]
 
