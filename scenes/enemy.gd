@@ -1,44 +1,41 @@
 extends CharacterBody3D
 
-var movement_speed: float = 1.0
-var movement_target_position: Vector3 = Vector3(-3.0,0.0,2.0)
+var movement_speed: float = 2.0  # Slightly faster for better responsiveness
+var movement_target_position: Vector3 = Vector3(-3.0, 0.0, 2.0)
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @export var player: Node3D  # Drag the player node into this export field
 
 func _ready():
-	# These values need to be adjusted for the actor's speed
-	# and the navigation layout.
-	navigation_agent.path_desired_distance = 0.2
-	navigation_agent.target_desired_distance = 0.2
-
-	# Make sure to not await during _ready.
+	navigation_agent.path_desired_distance = 0.8
+	navigation_agent.target_desired_distance = 0.8
 	actor_setup.call_deferred()
 
 func actor_setup():
-	# Wait for the first physics frame so the NavigationServer can sync.
-	await get_tree().physics_frame
+	await get_tree().physics_frame  # Wait for navigation sync
 
-	# Now that the navigation map is no longer empty, set the movement target.
 	if player:
 		set_movement_target(player.global_transform.origin)
 	else:
 		set_movement_target(movement_target_position)
 
 func set_movement_target(movement_target: Vector3):
-	navigation_agent.set_target_position(movement_target)
+	if navigation_agent.target_position.distance_to(movement_target) > 0.5:
+		navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
-	if player:
+	# Update the target only if the player moves significantly
+	if player and player.global_transform.origin.distance_to(navigation_agent.target_position) > 0.5:
 		set_movement_target(player.global_transform.origin)
 
-	var current_agent_position: Vector3 = global_position
-	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-	
-	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
+	var next_path_position = navigation_agent.get_next_path_position()
+	var direction = (next_path_position - global_position).normalized()
+
+	# Move smoothly
+	velocity = direction * movement_speed
 	move_and_slide()
-	
-	# Add code for player collision 
+
+	# Collision detection & scene switch
 	if navigation_agent.is_navigation_finished() and global_position.distance_to(player.global_position) < navigation_agent.target_desired_distance:
 		call_deferred("switch_scene")
 
