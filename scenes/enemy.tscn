@@ -1,10 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcg77dbt3ronp"]
 
 [ext_resource type="Script" uid="uid://c3gpcsmeol7u2" path="res://scenes/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://ya235vbyvsuk" path="res://test_scene_assets/fakepngcat.png" id="2_md0e3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_md0e3"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_7p1mj"]
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_7p1mj")
@@ -15,6 +14,7 @@ script = ExtResource("1_7p1mj")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("BoxShape3D_md0e3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-mesh = SubResource("BoxMesh_7p1mj")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.001
+billboard = 1
+texture = ExtResource("2_md0e3")
