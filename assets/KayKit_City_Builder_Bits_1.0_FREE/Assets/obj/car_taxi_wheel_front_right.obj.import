@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://sxn5n3dh13yi"
+path="res://.godot/imported/car_taxi_wheel_front_right.obj-ad4cb5200d4dc9d5de84331ad08a895f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/car_taxi_wheel_front_right.obj-ad4cb5200d4dc9d5de84331ad08a895f.mesh"]
+
+source_file="res://assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_taxi_wheel_front_right.obj"
+dest_files=["res://.godot/imported/car_taxi_wheel_front_right.obj-ad4cb5200d4dc9d5de84331ad08a895f.mesh", "res://.godot/imported/car_taxi_wheel_front_right.obj-ad4cb5200d4dc9d5de84331ad08a895f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
